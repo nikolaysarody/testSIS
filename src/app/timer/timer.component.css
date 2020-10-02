@@ -1,0 +1,11 @@
+.timer {
+  float: left;
+  text-align: center;
+  width: min-content;
+  height: min-content;
+  border: 1px solid grey;
+  margin: 2px;
+}
+.timer hr {
+  margin: 0px;
+}
