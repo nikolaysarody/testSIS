@@ -16,7 +16,7 @@ export class AppComponent {
     this.new=!this.new;
     if(this.new){
       this.timer = "Убрать счетчик";
-    }else{
+    } else{
       this.timer = "Добавить счетчик";
     }
   }

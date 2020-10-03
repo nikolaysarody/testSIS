@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter, OnChanges} from '@angular/core';
 import { timer } from "rxjs";
 
 
@@ -39,7 +39,7 @@ export class TimerComponent implements OnInit, OnChanges {
     this.isOnOut.emit(this.isRunning);
     if(this.isRunning) {
       this.timer = "Пауза";
-    }else {
+    } else {
       this.timer = "Старт";
     }
   };
