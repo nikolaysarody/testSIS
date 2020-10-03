@@ -1,17 +1,17 @@
 <div class = "app">
-  <button (click)="toggleTimer()">{{timer2}}</button>
+  <button (click)="showTimer()">{{timer}}</button>
   <br>
   <app-timer
-    (isOnOut)=stateTimer1($event)
-    [isOnIn]=logicTimer1()
-    (timeOut)=catchTimer1($event)
+    (isOnOut)=stateTime($event,0)
+    [isOnIn]=logicTime(0)
+    (timeOut)=catchTime($event,0)
   ></app-timer>
   <div *ngIf="new">
     <app-timer
-      (isOnOut)=stateTimer2($event)
-      [isOnIn]=logicTimer2()
+      (isOnOut)=stateTime($event,1)
+      [isOnIn]=logicTime(1)
       [timeIn]="list[1]"
-      (timeOut)=catchTimer2($event)
+      (timeOut)=catchTime($event,1)
     ></app-timer>
     <button (click)="countTimers()">Подсчитать общее время</button>
   </div>

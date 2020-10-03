@@ -7,57 +7,46 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   new = false;
-  timer2: string = "Добавить счетчик";
+  timer: string = "Добавить счетчик";
   list: number[] = [0,0];
   states: boolean[] = [false,false];
   dates: any[] = [];
 
-  toggleTimer() {
+  showTimer() {
     this.new=!this.new;
     if(this.new){
-      this.timer2 = "Убрать счетчик";
+      this.timer = "Убрать счетчик";
     }else{
-      this.timer2 = "Добавить счетчик";
+      this.timer = "Добавить счетчик";
     }
   }
 
-  catchTimer1(ev) {
-    this.list[0] = ev;
+  catchTime(ev, i) {
+    this.list[i] = ev;
   }
 
-  catchTimer2(ev) {
-    this.list[1] = ev;
+  stateTime(ev, i) {
+    this.dates[i] = Date();
+    this.states[i] = ev;
   }
 
-  stateTimer1(ev) {
-    this.dates[0] = Date();
-    this.states[0] = ev;
-  }
-
-  stateTimer2(ev){
-    this.dates[1] = Date();
-    this.states[1] = ev;
-  }
-
-  logicTimer1() {
-    if (this.dates[1] <= this.dates[0] || this.states[0] == false) {
-      if (this.states[0] == true) {
-        if (this.states[1] == true) {
-          this.states[1] = false;
+  logicTime(i) : boolean {
+    if (this.dates[1] <= this.dates[0]) {
+      if (this.states[i] == true) {
+        if (this.states[i + 1] == true) {
+          this.states[i + 1] = false;
         }
-      }else {
+        } else {
+          return false;
+        }
+      } else {
+      if (this.states[i] == true) {
+        if (this.states[i - 1] == true) {
+          this.states[i - 1] = false;
+        }
+      } else {
         return false;
       }
-    }
-  }
-
-  logicTimer2() {
-    if (this.states[1] == true) {
-      if (this.states[0] == true) {
-        this.states[0] = false;
-      }
-    }else {
-      return false;
     }
   }
 
