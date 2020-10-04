@@ -18,7 +18,7 @@ export class TimerComponent implements OnInit, OnChanges {
   timer: string = "Старт";
 
   ngOnInit(): void {
-    timer(0, 1000).subscribe(ellapsedCycles => {
+    timer(0, 1000).subscribe(val => {
       if (this.isRunning) {
         this.time++;
         this.timeOut.emit(this.time);

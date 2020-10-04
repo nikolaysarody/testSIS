@@ -31,7 +31,7 @@ export class AppComponent {
   }
 
   logicTime(i) : boolean {
-    if (this.dates[1] <= this.dates[0]) {
+    if (this.dates[1] <= this.dates[0] || this.states[0] == false) {
       if (this.states[i] == true) {
         if (this.states[i + 1] == true) {
           this.states[i + 1] = false;
